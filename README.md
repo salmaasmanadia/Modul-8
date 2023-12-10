@@ -2,9 +2,9 @@
 
 
 sql query
--------
+
 create sequence users_id start 20220001
--------
+
 create table tb_users
 (
 	id character varying(100) default 'ST' || nextval('users_id') primary key,
@@ -12,7 +12,7 @@ create table tb_users
 	alamat character varying(20),
 	no_hp character varying(20)
 )
--------
+
 create function st_insert
 (
 	_name character varying,
@@ -45,7 +45,8 @@ end
 '
 
 language plpgsql;
--------
+
+
 create function st_select()
 returns table
 (
@@ -63,7 +64,7 @@ begin
 	select id, name, alamat, no_hp from tb_users;
 end
 '
--------
+
 
 create or replace function st_update
 (
@@ -91,7 +92,7 @@ end
 '
 
 language plpgsql;
-------
+
 
 create or replace function st_delete(_id character varying)
 returns int as
@@ -108,6 +109,6 @@ end
 '
 
 language plpgsql;
--------
+
 
 
